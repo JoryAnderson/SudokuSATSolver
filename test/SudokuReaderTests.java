@@ -1,17 +1,15 @@
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 
 public class SudokuReaderTests {
 
-  @Before
-  public void setUp() {
-    // TODO: Redirect stdout to stream
-  }
-
   @Test
-  public void readValidPattern_NumbersDotArraysShouldMatch() {
-
+  public void readValidPattern_NumbersDotArraysShouldMatch() throws FileNotFoundException {
+    System.setIn(new FileInputStream(new File("test/validPuzzle.txt")));
+    SudokuReader.readInput();
   }
 
   @Test
@@ -43,11 +41,5 @@ public class SudokuReaderTests {
   public void readInvalidPattern_InvalidNumbersShouldPrintUsage() {
 
   }
-
-  @After
-  public void tearDown() {
-    // TODO: Close streams
-  }
-
 
 }
