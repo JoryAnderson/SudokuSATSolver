@@ -14,6 +14,7 @@ public class SudokuReaderTests {
 
 
   List<List<String>> validInput1 = new ArrayList<>();
+  List<List<String>> validInput2 = new ArrayList<>();
 
   @Before
   public void setUp() {
@@ -26,6 +27,16 @@ public class SudokuReaderTests {
     validInput1.add(Arrays.asList(".",".","7","2",".",".",".","8","."));
     validInput1.add(Arrays.asList(".","2","6",".",".",".",".","3","5"));
     validInput1.add(Arrays.asList(".",".",".","4",".","9",".",".","."));
+
+    validInput2.add(Arrays.asList("1","6","3","8",".","5",".","7","."));
+    validInput2.add(Arrays.asList(".",".","8",".","4",".",".","6","5"));
+    validInput2.add(Arrays.asList(".",".","5",".",".","7",".",".","8"));
+    validInput2.add(Arrays.asList("4","5",".",".","8","2",".","3","9"));
+    validInput2.add(Arrays.asList("3",".","1",".",".",".",".","4","."));
+    validInput2.add(Arrays.asList("7",".",".",".",".",".",".",".","."));
+    validInput2.add(Arrays.asList("8","3","9",".","5",".",".",".","."));
+    validInput2.add(Arrays.asList("6",".","4","2",".",".","5","9","."));
+    validInput2.add(Arrays.asList(".",".",".",".","9","3",".","8","1"));
   }
 
   @Test
@@ -41,8 +52,9 @@ public class SudokuReaderTests {
   }
 
   @Test
-  public void readInput_ValidLongStringFormatShouldMatch() {
-
+  public void readInput_ValidLongStringFormatShouldMatch() throws FileNotFoundException {
+    System.setIn(new FileInputStream(new File("src/test/resources/validLongStringPuzzle.txt")));
+    Assert.assertEquals(validInput2, SudokuReader.readInput());
   }
 
   @Test(expected = PuzzleNotSupportedException.class)
@@ -51,24 +63,22 @@ public class SudokuReaderTests {
     SudokuReader.readInput();
   }
 
-  @Test
-  public void readInput_PatternNotCubeShouldPrintUsage() {
-
+  @Test(expected = PuzzleNotSupportedException.class)
+  public void readInput_PatternNotSquareShouldPrintUsage() throws FileNotFoundException {
+    System.setIn(new FileInputStream(new File("src/test/resources/invalidNotSquarePuzzle.txt")));
+    SudokuReader.readInput();
   }
 
-  @Test
-  public void readInput_BadSymbolsShouldPrintUsage() {
-
+  @Test (expected = PuzzleNotSupportedException.class)
+  public void readInput_BadSymbolsShouldPrintUsage() throws FileNotFoundException {
+    System.setIn(new FileInputStream(new File("src/test/resources/invalidBadSymbolPuzzle.txt")));
+    SudokuReader.readInput();
   }
 
-  @Test
-  public void readInput_Not9By9ShouldPrintUsage() {
-
-  }
-
-  @Test
-  public void readInput_InvalidNumbersShouldPrintUsage() {
-
+  @Test (expected = PuzzleNotSupportedException.class)
+  public void readInput_InvalidNumbersShouldPrintUsage() throws FileNotFoundException {
+    System.setIn(new FileInputStream(new File("src/test/resources/invalidBadRowLengthPuzzle.txt")));
+    SudokuReader.readInput();
   }
 
   @Test
@@ -83,5 +93,4 @@ public class SudokuReaderTests {
     String expectedOutput = "13.542..7";
     Assert.assertEquals(expectedOutput, SudokuReader.stripSymbols(expectedOutput));
   }
-
 }
