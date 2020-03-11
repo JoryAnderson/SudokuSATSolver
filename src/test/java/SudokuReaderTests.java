@@ -15,6 +15,7 @@ public class SudokuReaderTests {
 
   List<List<String>> validInput1 = new ArrayList<>();
   List<List<String>> validInput2 = new ArrayList<>();
+  String[][] validInputArr1 = new String[9][9];
 
   @Before
   public void setUp() {
@@ -37,6 +38,17 @@ public class SudokuReaderTests {
     validInput2.add(Arrays.asList("8","3","9",".","5",".",".",".","."));
     validInput2.add(Arrays.asList("6",".","4","2",".",".","5","9","."));
     validInput2.add(Arrays.asList(".",".",".",".","9","3",".","8","1"));
+
+    validInputArr1[0] = new String[]{".",".",".","1",".","5",".",".","."};
+    validInputArr1[1] = new String[]{"1","4",".",".",".",".","6","7","."};
+    validInputArr1[2] = new String[]{".","8",".",".",".","2","4",".","."};
+    validInputArr1[3] = new String[]{".","6","3",".","7",".",".","1","."};
+    validInputArr1[4] = new String[]{"9",".",".",".",".",".",".",".","3"};
+    validInputArr1[5] = new String[]{".","1",".",".","9",".","5","2","."};
+    validInputArr1[6] = new String[]{".",".","7","2",".",".",".","8","."};
+    validInputArr1[7] = new String[]{".","2","6",".",".",".",".","3","5"};
+    validInputArr1[8] = new String[]{".",".",".","4",".","9",".",".","."};
+
   }
 
   @Test
@@ -92,5 +104,12 @@ public class SudokuReaderTests {
   public void stripSymbols_HappyPath() {
     String expectedOutput = "13.542..7";
     Assert.assertEquals(expectedOutput, SudokuReader.stripSymbols(expectedOutput));
+  }
+
+  @Test
+  public void toArray_validPatternShouldBeFine() throws FileNotFoundException {
+    System.setIn(new FileInputStream(new File("src/test/resources/validPuzzle.txt")));
+    String[][] actualArray = SudokuReader.toArray(SudokuReader.readInput());
+    Assert.assertArrayEquals(validInputArr1, actualArray);
   }
 }
