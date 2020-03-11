@@ -19,7 +19,7 @@ public class SudokuReader {
         assert(x != null);
 
         if (x.length() == 81) {
-          return splitIntoLists(stripSymbols(x).split(""));
+          return Convert.splitIntoLists(stripSymbols(x).split(""));
         }
 
         x = stripSymbols(x);
@@ -42,16 +42,6 @@ public class SudokuReader {
       return sudoku;
   }
 
-  private static List<List<String>> splitIntoLists(String[] xArr) {
-    List<List<String>> grid = new ArrayList<>();
-
-    for(int i = 0; i < xArr.length; i+=9) {
-        String[] row = Arrays.copyOfRange(xArr, i, i + 9);
-        grid.add(Arrays.asList(row));
-    }
-    return grid;
-  }
-
   private static boolean validateLine(String str) {
     return str.equals(str.replaceAll("[^0-9?.]", "."))  && str.length() == 9;
   }
@@ -70,18 +60,4 @@ public class SudokuReader {
             "Available characters are 0-9 and [., *, 0, ?] which designate empty cells.\n");
   }
 
-  public static String[][] toArray(List<List<String>> grid) {
-    String[][] newGrid = new String[9][9];
-    for(int i = 0; i < grid.size(); i++) {
-      List<String> listRow = grid.get(i);
-      String[] row = new String[listRow.size()];
-      for(int j = 0; j < listRow.size(); j++) {
-        row[j] = listRow.get(j);
-      }
-
-      newGrid[i] = row;
-    }
-
-    return newGrid;
-  }
 }
