@@ -29,6 +29,8 @@ public class SudokuReader {
         }
 
         sudoku.add(new ArrayList<>(Arrays.asList(x.split(""))));
+
+        //TODO: Remove
         System.out.println(x);
       }
 
@@ -82,9 +84,4 @@ public class SudokuReader {
 
     return newGrid;
   }
-
-
-
-
-
 }
