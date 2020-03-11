@@ -18,6 +18,10 @@ public class SudokuReader {
         catch (IOException e) {e.printStackTrace();}
         assert(x != null);
 
+        if (x.length() == 81) {
+          return splitIntoLists(stripSymbols(x));
+        }
+
         x = stripSymbols(x);
         if (!validateLine(x)) {
           printUsage();
@@ -36,6 +40,17 @@ public class SudokuReader {
       return sudoku;
   }
 
+  private static List<List<String>> splitIntoLists(String x) {
+    List<List<String>> grid = new ArrayList<>();
+    String[] xArr = x.split("");
+
+    for(int i = 0; i < xArr.length; i+=9) {
+        String[] row = Arrays.copyOfRange(xArr, i, i + 9);
+        grid.add(Arrays.asList(row));
+    }
+    return grid;
+  }
+
   private static boolean validateLine(String str) {
     return str.equals(str.replaceAll("[^0-9?.]", "."))  && str.length() == 9;
   }
@@ -49,7 +64,9 @@ public class SudokuReader {
   }
 
   public static void printUsage() {
-    // TODO:
+    System.out.println("\nUsage: java [sud2sat|sat2sud] < puzzle.txt\n" +
+            "Pass a .txt file containing the incomplete sudoku puzzle.\n" +
+            "Available characters are 0-9 and [., *, 0, ?] which designate empty cells.\n");
   }
 
   public static String[][] toArray() {
