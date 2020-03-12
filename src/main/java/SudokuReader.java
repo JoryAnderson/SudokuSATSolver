@@ -20,24 +20,16 @@ public class SudokuReader {
 
         x = stripSymbols(x);
 
-        if (x.length() == 81) {
-          //TODO: Remove
-          System.out.println(x);
-          System.out.println(x.length());
-
-          return Convert.toList(x);
-        }
-
-        checkPuzzleSupport(validateLine(x), "Line contains either invalid characters or is not of length 9");
-
         //TODO: Remove
         System.out.println(x);
 
+        if (x.length() == 81) { return Convert.toList(x); }
+
+        checkPuzzleSupport(validateLine(x), "Line contains either invalid characters or is not of length 9");
         sudoku.add(new ArrayList<>(Arrays.asList(x.split(""))));
       }
 
-      checkPuzzleSupport(validateGrid(sudoku), "Grid has more than 9 rows.");
-
+      checkPuzzleSupport(validateGrid(sudoku), "Grid has more or less than 9 rows.");
       return sudoku;
   }
 

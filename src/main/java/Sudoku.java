@@ -17,6 +17,8 @@ public class Sudoku {
    * @return A list of lists corresponding to the 3x3 square.
    */
   public List<List<String>> getSquare(int pos) {
+
+    // TODO: Use enum instead? Specs say only a normal puzzle (a 9x9) will be given
     assert(pos < 9);
 
     List<List<String>> result = new ArrayList<>();
