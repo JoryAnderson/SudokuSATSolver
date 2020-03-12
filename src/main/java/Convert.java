@@ -4,7 +4,7 @@ import java.util.List;
 
 public class Convert {
 
-  static List<List<String>> splitIntoLists(String[] xArr) {
+  private static List<List<String>> splitIntoLists(String[] xArr) {
     List<List<String>> grid = new ArrayList<>();
 
     for(int i = 0; i < xArr.length; i+=9) {
@@ -27,6 +27,12 @@ public class Convert {
     }
     return newGrid;
   }
+
+  public static List<List<String>> toList(String grid) {
+    assert(grid.length() == 81);
+    return splitIntoLists(grid.split(""));
+  }
+
 
   public static List<List<String>> toList(String[][] grid) {
     List<List<String>> newGrid = new ArrayList<>();
