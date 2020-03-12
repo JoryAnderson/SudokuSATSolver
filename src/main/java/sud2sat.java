@@ -1,6 +1,8 @@
+import java.util.SortedMap;
+
 public class sud2sat {
 
   public static void main(String[] args) {
-    SudokuReader.readInput();
+    Sudoku sudoku = new Sudoku(SudokuReader.readInput());
   }
 }
