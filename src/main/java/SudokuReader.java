@@ -18,26 +18,25 @@ public class SudokuReader {
         catch (IOException e) {e.printStackTrace();}
         assert(x != null);
 
-        if (x.length() == 81) {
-          return Convert.splitIntoLists(stripSymbols(x).split(""));
-        }
-
         x = stripSymbols(x);
-        if (!validateLine(x)) {
-          printUsage();
-          throw new PuzzleNotSupportedException("Line contains either invalid characters or is not of length 9");
+
+        if (x.length() == 81) {
+          //TODO: Remove
+          System.out.println(x);
+          System.out.println(x.length());
+
+          return Convert.toList(x);
         }
 
-        sudoku.add(new ArrayList<>(Arrays.asList(x.split(""))));
+        checkPuzzleSupport(validateLine(x), "Line contains either invalid characters or is not of length 9");
 
         //TODO: Remove
         System.out.println(x);
+
+        sudoku.add(new ArrayList<>(Arrays.asList(x.split(""))));
       }
 
-      if (!validateGrid(sudoku)) {
-        printUsage();
-        throw new PuzzleNotSupportedException("Grid has more than 9 rows.");
-      }
+      checkPuzzleSupport(validateGrid(sudoku), "Grid has more than 9 rows.");
 
       return sudoku;
   }
@@ -48,6 +47,13 @@ public class SudokuReader {
 
   private static boolean validateGrid(List<List<String>> grid) {
     return grid.size() == 9;
+  }
+
+  private static void checkPuzzleSupport(Boolean support, String msg) {
+    if (!support) {
+      printUsage();
+      throw new PuzzleNotSupportedException(msg);
+    }
   }
 
   public static String stripSymbols(String line) {
