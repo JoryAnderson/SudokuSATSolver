@@ -7,21 +7,18 @@ public class SudokuReader {
 
   public static List<List<String>> readInput() {
       List<List<String>> sudoku = new ArrayList<>();
-      BufferedReader f = new BufferedReader(new InputStreamReader(System.in));
+      BufferedReader input = new BufferedReader(new InputStreamReader(System.in));
 
       while(true) {
         String x = null;
         try{
-          x = f.readLine();
+          x = input.readLine();
           if ( x == null ) {break;}
         }
         catch (IOException e) {e.printStackTrace();}
         assert(x != null);
 
         x = stripSymbols(x);
-
-        //TODO: Remove
-        System.out.println(x);
 
         if (x.length() == 81) { return Convert.toList(x); }
 

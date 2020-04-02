@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class Convert {
 
@@ -42,5 +43,34 @@ public class Convert {
     }
 
     return newGrid;
+  }
+
+  public static String toFlatString(List<List<String>> grid) {
+    StringBuilder result = new StringBuilder();
+
+    for(List<String> row: grid) {
+      for(String cell: row) {
+        result.append(cell);
+      }
+    }
+
+    return result.toString();
+  }
+
+
+  public static List<List<Integer>> toIntList(List<List<String>> grid) {
+
+    List<List<Integer>> result = new ArrayList<>();
+    grid.forEach((List<String> x) -> result.add(x.stream().map(Integer::valueOf).collect(Collectors.toList())));
+
+    return result;
+  }
+
+  public static int toBase9(int i, int j, int k) {
+    return (81*(j - 1) + 9*(i - 1) + (k-1) + 1);
+  }
+
+  public static int fromBase9(int n) {
+    return (n-1) % 9 + 1;
   }
 }
