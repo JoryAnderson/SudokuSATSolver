@@ -24,10 +24,10 @@ public class sud2sat {
         clauses++;
       }
 
-      xBase++;
-      if(xBase == 10) {
-        yBase++;
-        xBase = 1;
+      yBase++;
+      if(yBase == 10) {
+        xBase++;
+        yBase = 1;
       }
 
     }
