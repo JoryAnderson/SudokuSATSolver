@@ -48,7 +48,7 @@ in command line / terminal
         minisat puzzle.cnf assign.txt > stat.txt
         java sat2sud < assign.txt > solution.txt
         
-![](doc/report/simpleCommandLine.png)
+![](doc/report/simple/simpleCommandLine.png)
 
 # Example Build / Execution (Extended)
 
@@ -57,4 +57,4 @@ in command line / terminal
         minisat puzzle.cnf assign.txt > stat.txt
         java sat2sud < assign.txt > solution.txt
         
-![](doc/report/extendedCommandLine.png)
+![](doc/report/extended/extendedCommandLine.png)
