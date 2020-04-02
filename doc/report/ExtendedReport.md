@@ -113,10 +113,13 @@ sat2sud Output:
 minisat Statistics:
     
 ![](extended/hardPuzzle4modified.png)
-- As predicted, the removal of the basic rule has reduced the CPU time required to solve this problem.
+- However, our modified run of hardPuzzle4 took us ~3x as much time to complete compared
+to the unmodified run.
+
 - Compared to our unmodified run:
-    - ~64 less clauses
-    - 3 additional conflicts
-    - 2 additional decisions
-    - ~300 additional propagations
-    - ~20 additional conflict literals
+    - 0.01 seconds to parse
+    - 64 less clauses
+    - 3 less conflicts
+    - 2 less decisions
+    - 242 less propagations
+    - 66 less conflict literals
