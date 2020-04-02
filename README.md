@@ -13,11 +13,12 @@
 1. After extracting the contents of the tarball, compile all java files in the archive by performing the following
 in command line / terminal
      
-       javac *.java
+        javac *.java
+    - Ensure your working directory in terminal/cmd is set to the 'subid' folder of the submission (i.e., 'jba')
        
 2. Once completed, take a properly formatted puzzle.txt file (see project.pdf), and perform the following command:
     
-        java sud2sat < puzzle.txt > puzzle.cnf
+        java sud2sat < puzzles/puzzle.txt > puzzle.cnf
     - Note: sud2satextended can be used in a manner identical to sud2sat. Simply substitute the command.
         
    This will use "puzzle.txt" as the input (i.e., the file containing the incomplete sudoku puzzle), and create a
@@ -52,7 +53,7 @@ in command line / terminal
 # Example Build / Execution (Extended)
 
         javac *.java
-        java sud2satextended < puzzles/puzzle.txt > puzzle.cnf
+        java sud2satextended < puzzles/hardPuzzle2.txt > puzzle.cnf
         minisat puzzle.cnf assign.txt > stat.txt
         java sat2sud < assign.txt > solution.txt
         
