@@ -3,6 +3,11 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
+
+/**
+ * Helper functions for converting Sudoku-representative objects to varying data structures.
+ *
+ */
 public class Convert {
 
   private static List<List<String>> splitIntoLists(String[] xArr) {

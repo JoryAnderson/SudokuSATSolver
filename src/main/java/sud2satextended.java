@@ -17,8 +17,7 @@ public class sud2satextended {
 
     outputList.add("c Encoding: Extended\n\n");
 
-    outputList.add("c Simple Rules\n");
-    outputList.add("\nc Unit Clauses\n");
+    outputList.add("c Unit Clauses\n");
     int xBase = 1;
     int yBase = 1;
     for(int i = 0; i < 81; i++) {
@@ -35,9 +34,9 @@ public class sud2satextended {
 
     }
 
-    outputList.add("\nc At least number in each entry\n");
-    for(int y = 1; y < 10; y++) {
-      for(int x = 1; x < 10; x++) {
+    outputList.add("\nc One number in each entry\n");
+    for(int x = 1; x < 10; x++) {
+      for(int y = 1; y < 10; y++) {
         for(int z = 1; z < 10; z++) {
           outputList.add(Convert.toBase9(x, y, z) + " ");
         }
@@ -49,7 +48,7 @@ public class sud2satextended {
     outputList.add("\nc Each number appears at most once in each row\n");
     for(int y = 1; y < 10; y++) {
       for(int z = 1; z < 10; z++) {
-        for(int x = 1; x < 10; x++) {
+        for(int x = 1; x < 9; x++) {
           for(int i = x + 1; i < 10; i++) {
             outputList.add("-" + Convert.toBase9(x, y, z) + " -" + Convert.toBase9(i, y, z) + " 0\n");
             clauses++;
@@ -61,8 +60,8 @@ public class sud2satextended {
     outputList.add("\nc Each number appears at most once in each column\n");
     for(int x = 1; x < 10; x++) {
       for(int z = 1; z < 10; z++) {
-        for(int y = 1; y < 10; y++) {
-          for(int i = y + 1; i < rowSize + 1; i++) {
+        for(int y = 1; y < 9; y++) {
+          for(int i = y + 1; i < 10; i++) {
             outputList.add("-" + Convert.toBase9(x, y, z) + " -" + Convert.toBase9(x, i, z) + " 0\n");
             clauses++;
           }
