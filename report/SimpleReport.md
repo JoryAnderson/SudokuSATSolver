@@ -1,5 +1,5 @@
 # Simple Puzzle Tests
-Input: 
+sud2sat Input: 
 
     ...1.5...
     14....67.
@@ -11,7 +11,7 @@ Input:
     .26....35
     ...4.9...
     
-Output:
+sat2sud Output:
  
     672 145 398
     145 983 672
@@ -23,14 +23,14 @@ Output:
     426 817 935
     831 459 267
     
-Statistics:
+minisat Statistics:
 
 ![](simple/puzzle.png)
 
 #
 
 
-Input:
+sud2sat Input:
 
     003020600
     900305001
@@ -42,7 +42,7 @@ Input:
     800203009
     005010300
 
-Output:
+sat2sud Output:
 
     483 921 657
     967 345 821
@@ -54,14 +54,14 @@ Output:
     814 253 769
     695 417 382
 
-Statistics:
+minisat Statistics:
 
 ![](simple/easyPuzzle1.png)
 
 #
 
 
-Input:
+sud2sat Input:
 
     200080300
     060070084
@@ -73,7 +73,7 @@ Input:
     720040060
     004010003
 
-Output:
+sat2sud Output:
 
     245 981 376
     169 273 584
@@ -85,14 +85,14 @@ Output:
     728 349 165
     654 812 793
 
-Statistics:
+minisat Statistics:
  
 ![](simple/easyPuzzle2.png) 
 
 #
 
 
-Input:
+sud2sat Input:
 
     000000907
     000420180
@@ -104,7 +104,7 @@ Input:
     034059000
     507000000
 
-Output:
+sat2sud Output:
 
     462 831 957
     795 426 183
@@ -116,7 +116,7 @@ Output:
     834 259 671
     517 643 892
 
-Statistics:
+minisat Statistics:
 
 ![](simple/easyPuzzle3.png)
 
