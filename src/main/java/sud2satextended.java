@@ -27,15 +27,15 @@ public class sud2satextended {
         clauses++;
       }
 
-      xBase++;
-      if(xBase == 10) {
-        yBase++;
-        xBase = 1;
+      yBase++;
+      if(yBase == 10) {
+        xBase++;
+        yBase = 1;
       }
 
     }
 
-    /*outputList.add("\nc At least number in each entry\n");
+    outputList.add("\nc At least number in each entry\n");
     for(int y = 1; y < 10; y++) {
       for(int x = 1; x < 10; x++) {
         for(int z = 1; z < 10; z++) {
@@ -44,7 +44,7 @@ public class sud2satextended {
         outputList.add("0\n");
         clauses++;
       }
-    }*/
+    }
 
     outputList.add("\nc Each number appears at most once in each row\n");
     for(int y = 1; y < 10; y++) {

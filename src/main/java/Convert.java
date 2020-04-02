@@ -67,7 +67,7 @@ public class Convert {
   }
 
   public static int toBase9(int i, int j, int k) {
-    return (81*(j - 1) + 9*(i - 1) + (k-1) + 1);
+    return (81*(i - 1) + 9*(j - 1) + (k-1) + 1);
   }
 
   public static int fromBase9(int n) {
