@@ -4,7 +4,9 @@
 - Note: My original team of 3 disbanded due to the challenges presented by CoViD-19. I have decided to complete the
   project regardless.
   
-  
+# Citation
+Inês Lynce, Joël Ouaknine. “[Sudoku as a SAT Problem](https://api.semanticscholar.org/CorpusID:10853506)”. *AI&M* (2006).
+
 # Requirements
 - JDK 11 (Cannot guarantee successful compilation on other versions)
 - minisat (Available on UVic Linux machines)
